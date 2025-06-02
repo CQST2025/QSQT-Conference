@@ -1,0 +1,226 @@
+import React from "react";
+
+type Submission = {
+  name: string;
+  title: string;
+  description: string;
+  link?: string;
+};
+
+type Guest = {
+  name: string;
+  bio: string;
+  talkTitle: string;
+  time: string;
+  photoUrl?: string;
+};
+
+const mockGuests: Guest[] = [
+  {
+    name: "Dr. Alice Quantum",
+    bio: "Researcher at Quantum Labs, expert in quantum algorithms.",
+    talkTitle: "Quantum Algorithms: The Next Frontier",
+    time: "10:00 AM - 11:00 AM",
+    photoUrl: "https://randomuser.me/api/portraits/women/44.jpg",
+  },
+  {
+    name: "Prof. Bob Entangler",
+    bio: "Professor at Qubit University, author of 'Quantum Computing for All'.",
+    talkTitle: "Entangling Minds: Education in Quantum Computing",
+    time: "11:15 AM - 12:00 PM",
+    photoUrl: "https://randomuser.me/api/portraits/men/34.jpg",
+  },
+];
+
+const QuantumSeminarPage: React.FC = () => {
+  const [submissions, setSubmissions] = React.useState<Submission[]>([]);
+  const [form, setForm] = React.useState<Submission>({
+    name: "",
+    title: "",
+    description: "",
+    link: "",
+  });
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    setForm({ ...form, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (form.name && form.title && form.description) {
+      setSubmissions([form, ...submissions]);
+      setForm({ name: "", title: "", description: "", link: "" });
+    }
+  };
+
+  return (
+    <div style={{ fontFamily: "sans-serif", maxWidth: 800, margin: "0 auto", padding: 24 }}>
+      <header>
+        <h1>Online Quantum Computing Seminar 2025</h1>
+        <p>
+          Join our annual online seminar to explore the latest in quantum computing! Connect with peers, 
+          share your research, and hear from leading experts in the field.
+        </p>
+        <a
+          href="#submission"
+          style={{
+            display: "inline-block",
+            marginTop: 12,
+            padding: "10px 22px",
+            background: "#3a0073",
+            color: "#fff",
+            borderRadius: 6,
+            textDecoration: "none",
+            fontWeight: "bold",
+          }}
+        >
+          Submit Your Work
+        </a>
+      </header>
+
+      <section style={{ margin: "48px 0 32px 0" }}>
+        <h2>Featured Guest Talks</h2>
+        <div style={{ display: "flex", flexDirection: "column", gap: 24 }}>
+          {mockGuests.map((guest, idx) => (
+            <div
+              key={idx}
+              style={{
+                display: "flex",
+                alignItems: "flex-start",
+                gap: 18,
+                background: "#f5f5fa",
+                padding: 18,
+                borderRadius: 8,
+              }}
+            >
+              {guest.photoUrl && (
+                <img
+                  src={guest.photoUrl}
+                  alt={guest.name}
+                  style={{ width: 64, height: 64, borderRadius: "50%" }}
+                />
+              )}
+              <div>
+                <h3 style={{ margin: "0 0 6px 0" }}>{guest.talkTitle}</h3>
+                <div style={{ fontWeight: "bold" }}>{guest.name}</div>
+                <div style={{ fontSize: 14, color: "#444", marginBottom: 4 }}>{guest.bio}</div>
+                <div style={{ fontSize: 13, color: "#666" }}>⏰ {guest.time}</div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section id="submission" style={{ marginBottom: 48 }}>
+        <h2>Share Your Work</h2>
+        <p>
+          Are you a student or researcher? Submit your project, paper, or demo to showcase your work to the community.
+        </p>
+        <form
+          onSubmit={handleSubmit}
+          style={{
+            background: "#f0f0ff",
+            padding: 18,
+            borderRadius: 8,
+            marginBottom: 24,
+            display: "flex",
+            flexDirection: "column",
+            gap: 10,
+            maxWidth: 480,
+          }}
+        >
+          <input
+            name="name"
+            type="text"
+            placeholder="Your Name"
+            value={form.name}
+            onChange={handleChange}
+            required
+            style={{ padding: 8, borderRadius: 4, border: "1px solid #bbb" }}
+          />
+          <input
+            name="title"
+            type="text"
+            placeholder="Title of Your Work"
+            value={form.title}
+            onChange={handleChange}
+            required
+            style={{ padding: 8, borderRadius: 4, border: "1px solid #bbb" }}
+          />
+          <textarea
+            name="description"
+            placeholder="Short Description"
+            value={form.description}
+            onChange={handleChange}
+            required
+            rows={3}
+            style={{ padding: 8, borderRadius: 4, border: "1px solid #bbb" }}
+          />
+          <input
+            name="link"
+            type="url"
+            placeholder="Project/Repo Link (optional)"
+            value={form.link}
+            onChange={handleChange}
+            style={{ padding: 8, borderRadius: 4, border: "1px solid #bbb" }}
+          />
+          <button
+            type="submit"
+            style={{
+              background: "#3a0073",
+              color: "#fff",
+              padding: "8px 20px",
+              border: "none",
+              borderRadius: 5,
+              cursor: "pointer",
+              fontWeight: "bold",
+            }}
+          >
+            Submit
+          </button>
+        </form>
+        <h3>Student Submissions</h3>
+        {submissions.length === 0 ? (
+          <p>No submissions yet. Be the first to share your work!</p>
+        ) : (
+          <ul style={{ listStyle: "none", padding: 0 }}>
+            {submissions.map((sub, idx) => (
+              <li
+                key={idx}
+                style={{
+                  background: "#f9f9fc",
+                  marginBottom: 8,
+                  padding: 12,
+                  borderRadius: 6,
+                  borderLeft: "4px solid #3a0073",
+                }}
+              >
+                <strong>{sub.title}</strong> by {sub.name}
+                <div style={{ fontSize: 14, margin: "6px 0" }}>{sub.description}</div>
+                {sub.link && (
+                  <a href={sub.link} target="_blank" rel="noopener noreferrer" style={{ fontSize: 13 }}>
+                    View Project
+                  </a>
+                )}
+              </li>
+            ))}
+          </ul>
+        )}
+      </section>
+
+      <section style={{ background: "#3a0073", color: "#fff", padding: 28, borderRadius: 12 }}>
+        <h2>How to Attend</h2>
+        <ul>
+          <li>📅 <strong>Date:</strong> June 15, 2025</li>
+          <li>🌐 <strong>Location:</strong> Online (Zoom link will be sent after registration)</li>
+          <li>📝 <strong>Register Now:</strong> <a href="https://forms.gle/your-registration-link" style={{ color: "#ffe66d" }}>Seminar Registration Form</a></li>
+        </ul>
+        <p style={{ marginTop: 18 }}>
+          For inquiries or to volunteer as a guest speaker, contact <a href="mailto:quantum.seminar@university.edu" style={{ color: "#ffe66d" }}>quantum.seminar@university.edu</a>
+        </p>
+      </section>
+    </div>
+  );
+};
+
+export default QuantumSeminarPage;
