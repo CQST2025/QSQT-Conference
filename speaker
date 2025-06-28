@@ -1,0 +1,25 @@
+<section class="speakers-section">
+  <h3>Organizers</h3>
+  <div class="speakers-grid">
+    <div class="speaker-card">
+      <div class="speaker-photo">
+        <div style="background: linear-gradient(135deg, #00f2fe 0%, #4facfe 100%); color: white;">MD</div>
+      </div>
+      <div class="speaker-name">Mrinal Dev</div>
+      <div class="speaker-title">PhD Student & Organizer</div>
+      <div class="speaker-affiliation">IIT Madras, CQST</div>
+      <div class="speaker-bio">Leads technical coordination and speaker outreach for QIQT 2025.</div>
+    </div>
+
+    <div class="speaker-card">
+      <div class="speaker-photo">
+        <div style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); color: white;">RS</div>
+      </div>
+      <div class="speaker-name">Dr. Riya Sen</div>
+      <div class="speaker-title">Faculty Coordinator</div>
+      <div class="speaker-affiliation">CQST, IIT Madras</div>
+      <div class="speaker-bio">Mentor and supervisor for the seminar series, ensuring academic integrity and quality.</div>
+    </div>
+  </div>
+</section>
+
