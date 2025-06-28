@@ -1,32 +1,748 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Webinar @ CQST</title>
-  <link rel="stylesheet" href="style.css" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WebSimnar @ CQST</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --secondary-gradient: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            --accent-gradient: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            --dark-bg: #0f0f23;
+            --card-bg: rgba(255, 255, 255, 0.95);
+            --text-primary: #2d3748;
+            --text-secondary: #718096;
+            --quantum-blue: #4299e1;
+            --quantum-purple: #805ad5;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #f8fafc;
+            /* Remove old background-image and add a new creative gradient */
+            background: radial-gradient(circle at 20% 30%, #b2e0ff 0%, transparent 60%),
+                        radial-gradient(circle at 80% 70%, #e0c3fc 0%, transparent 60%),
+                        linear-gradient(120deg, #f8fafc 60%, #e0c3fc 100%);
+            min-height: 100vh;
+            color: var(--text-primary);
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 30%, rgba(79, 172, 254, 0.10) 0%, transparent 40%),
+                radial-gradient(circle at 80% 70%, rgba(128, 90, 213, 0.10) 0%, transparent 40%),
+                radial-gradient(circle at 50% 50%, rgba(245, 87, 108, 0.05) 0%, transparent 50%);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        /* Floating particles background */
+        .particle-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            pointer-events: none;
+            z-index: 0;
+        }
+        .particle {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(1.5px);
+            opacity: 0.35;
+            animation: floatParticle linear infinite alternate;
+        }
+        @keyframes floatParticle {
+            0% {
+                transform: translateY(0px) scale(1) rotate(0deg);
+            }
+            100% {
+                transform: translateY(-60px) scale(1.12) rotate(30deg);
+            }
+        }
+
+        .container {
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Header Styles */
+        header {
+            background: transparent;
+            padding: 2.5rem 0;
+            margin-bottom: 3rem;
+            animation: slideDown 0.8s ease-out;
+        }
+
+        @keyframes slideDown {
+            from { transform: translateY(-50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        .logo-container {
+            position: relative;
+            display: inline-block;
+            margin-bottom: 1.5rem;
+            width: 140px;
+            height: 140px;
+        }
+
+        /* Centered Electron Orbit Animation */
+        .electron-orbit {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 160px;
+            height: 160px;
+            border: 2px solid rgba(79, 172, 254, 0.3);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            animation: orbitRotate 4s linear infinite;
+        }
+
+        .electron-orbit::before {
+            content: '';
+            position: absolute;
+            top: -6px;
+            left: 50%;
+            width: 8px;
+            height: 8px;
+            background: radial-gradient(circle, #00f2fe, #4facfe);
+            border-radius: 50%;
+            transform: translateX(-50%);
+            box-shadow: 0 0 15px rgba(79, 172, 254, 0.8);
+            animation: electronGlow 2s ease-in-out infinite alternate;
+        }
+
+        .electron-orbit-2 {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 120px;
+            height: 120px;
+            border: 1px solid rgba(128, 90, 213, 0.3);
+            border-radius: 50%;
+            transform: translate(-50%, -50%) rotate(60deg);
+            animation: orbitRotate2 6s linear infinite reverse;
+        }
+
+        .electron-orbit-2::before {
+            content: '';
+            position: absolute;
+            top: -4px;
+            left: 50%;
+            width: 6px;
+            height: 6px;
+            background: radial-gradient(circle, #f093fb, #805ad5);
+            border-radius: 50%;
+            transform: translateX(-50%);
+            box-shadow: 0 0 12px rgba(128, 90, 213, 0.8);
+            animation: electronGlow 1.5s ease-in-out infinite alternate;
+        }
+
+        @keyframes orbitRotate {
+            from { transform: translate(-50%, -50%) rotate(0deg); }
+            to { transform: translate(-50%, -50%) rotate(360deg); }
+        }
+
+        @keyframes orbitRotate2 {
+            from { transform: translate(-50%, -50%) rotate(60deg); }
+            to { transform: translate(-50%, -50%) rotate(420deg); }
+        }
+
+        @keyframes electronGlow {
+            0% { box-shadow: 0 0 10px rgba(79, 172, 254, 0.8); }
+            100% { box-shadow: 0 0 20px rgba(79, 172, 254, 1), 0 0 30px rgba(79, 172, 254, 0.6); }
+        }
+
+        .logo-placeholder {
+            width: 120px;
+            height: 120px;
+            background: var(--primary-gradient);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            color: white;
+            font-weight: 600;
+            position: relative;
+            z-index: 2;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            margin: 10px;
+            animation: logoGlow 3s ease-in-out infinite alternate;
+        }
+
+        @keyframes logoGlow {
+            0% { 
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2), 
+                           0 0 20px rgba(79, 172, 254, 0.3);
+            }
+            100% { 
+                box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3), 
+                           0 0 40px rgba(79, 172, 254, 0.6),
+                           0 0 60px rgba(128, 90, 213, 0.4);
+            }
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            background: var(--primary-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 0.5rem;
+            letter-spacing: -0.02em;
+            filter: drop-shadow(0 2px 4px rgba(79, 172, 254, 0.3));
+        }
+
+        .lead {
+            font-size: 1.3rem;
+            color: var(--text-secondary);
+            font-weight: 400;
+            margin-bottom: 2rem;
+        }
+
+        /* Navigation Styles */
+        .nav {
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 20px;
+            padding: 1rem;
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(79, 172, 254, 0.2);
+            box-shadow: 0 8px 32px rgba(79, 172, 254, 0.1);
+        }
+
+        .nav-link {
+            color: var(--text-primary) !important;
+            font-weight: 500;
+            padding: 0.75rem 1.5rem !important;
+            border-radius: 12px;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-link:hover {
+            background: var(--primary-gradient);
+            color: white !important;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(102, 126, 234, 0.4);
+        }
+
+        /* Main Content Styles */
+        main {
+            background: var(--card-bg);
+            backdrop-filter: blur(20px);
+            border-radius: 24px;
+            padding: 3rem;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            animation: slideUp 0.8s ease-out 0.2s both;
+        }
+
+        @keyframes slideUp {
+            from { transform: translateY(50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        h3 {
+            font-size: 2.5rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 1.5rem;
+            position: relative;
+        }
+
+        h3::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background: var(--secondary-gradient);
+            border-radius: 2px;
+        }
+
+        h4 {
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        h4::before {
+            content: '▶';
+            color: var(--quantum-blue);
+            font-size: 1.2rem;
+        }
+
+        p {
+            font-size: 1.1rem;
+            line-height: 1.7;
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+        }
+
+        /* Video Container */
+        .video-container {
+            position: relative;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+            margin-top: 2rem;
+            animation: fadeIn 1s ease-out 0.4s both;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.9); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        .video-container::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: var(--accent-gradient);
+            border-radius: 18px;
+            z-index: -1;
+        }
+
+        .ratio iframe {
+            border-radius: 14px;
+        }
+
+        /* Speakers Section */
+        .speakers-section {
+            background: var(--card-bg);
+            backdrop-filter: blur(20px);
+            border-radius: 24px;
+            padding: 3rem;
+            margin-top: 3rem;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            animation: slideUp 0.8s ease-out 0.4s both;
+        }
+
+        .speakers-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .speaker-card {
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 20px;
+            padding: 2rem;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(79, 172, 254, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .speaker-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 4px;
+            background: var(--primary-gradient);
+            transition: left 0.3s ease;
+        }
+
+        .speaker-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(102, 126, 234, 0.2);
+        }
+
+        .speaker-card:hover::before {
+            left: 0;
+        }
+
+        .speaker-photo {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            margin: 0 auto 1.5rem;
+            position: relative;
+            overflow: hidden;
+            border: 4px solid transparent;
+            background: var(--accent-gradient);
+            padding: 4px;
+            transition: all 0.3s ease;
+        }
+
+        .speaker-photo img {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+            background: #e2e8f0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: var(--text-secondary);
+        }
+
+        .speaker-card:hover .speaker-photo {
+            transform: scale(1.05);
+            box-shadow: 0 10px 30px rgba(79, 172, 254, 0.3);
+        }
+
+        .speaker-name {
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .speaker-title {
+            font-size: 1rem;
+            color: var(--quantum-blue);
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+        }
+
+        .speaker-affiliation {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+        }
+
+        .speaker-bio {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        /* Footer Styles */
+        footer {
+            background: var(--card-bg);
+            backdrop-filter: blur(20px);
+            border-radius: 24px;
+            padding: 2rem;
+            margin-top: 3rem;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            animation: slideUp 0.8s ease-out 0.6s both;
+        }
+
+        footer p {
+            margin-bottom: 1rem;
+            font-size: 1rem;
+        }
+
+        footer a {
+            color: var(--quantum-blue);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        footer a:hover {
+            color: var(--quantum-purple);
+            transform: translateY(-1px);
+        }
+
+        footer a::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--secondary-gradient);
+            transition: width 0.3s ease;
+        }
+
+        footer a:hover::after {
+            width: 100%;
+        }
+
+        /* Social Links */
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 1rem;
+        }
+
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .social-links a:hover {
+            background: var(--primary-gradient);
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(102, 126, 234, 0.4);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .container {
+                padding: 1rem;
+            }
+            
+            h1 {
+                font-size: 2.5rem;
+            }
+            
+            header, main, footer, .speakers-section {
+                padding: 1.5rem;
+            }
+            
+            .nav {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+            
+            .social-links {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .electron-orbit {
+                width: 120px;
+                height: 120px;
+            }
+
+            .electron-orbit-2 {
+                width: 90px;
+                height: 90px;
+            }
+
+            .speakers-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--primary-gradient);
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--secondary-gradient);
+        }
+    </style>
 </head>
 <body>
-  <header>
-    <h1>Conference on Quantum Computing and information</h1>
-    <h2>CQST – Centre for Quantum Science and Technology</h2>
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="schedule.html">Schedule</a>
-      <a href="speakers.html">Speakers</a>
-    </nav>
-  </header>
+    <!-- Remove the canvas -->
+    <div class="particle-bg"></div>
+    <div class="container py-5">
+        <header class="text-center mb-4">
+            <div class="logo-container">
+                <div class="electron-orbit"></div>
+                <div class="electron-orbit-2"></div>
+                <div class="logo-placeholder">
+                    CQST
+                </div>
+            </div>
+            <h1>QSQT 2025</h1>
+            <p class="lead">Centre for Quantum Science and Technology (CQST)</p>
+            <nav class="nav justify-content-center">
+                <a class="nav-link" href="index.html"><i class="fas fa-home me-2"></i>Home</a>
+                <a class="nav-link" href="schedule.html"><i class="fas fa-calendar me-2"></i>Schedule</a>
+                <a class="nav-link" href="speakers.html"><i class="fas fa-users me-2"></i>Speakers</a>
+                <a class="nav-link" href="registration.html"><i class="fas fa-user-plus me-2"></i>Register</a>
+                <a class="nav-link" href="past-talks.html"><i class="fas fa-history me-2"></i>Past Talks</a>
+                <a class="nav-link" href="organizers.html"><i class="fas fa-cogs me-2"></i>Organizers</a>
+            </nav>
+        </header>
 
-  <main>
-    <h3>Welcome</h3>
-    <p>
-      Webinar is an online quantum computing seminar series by CQST where students present their research and experts give guest lectures.
-    </p>
-    <p>Explore our upcoming events and speaker lineup!</p>
-  </main>
+        <main>
+            <h3>Welcome</h3>
+            <p>QSQT is an online seminar series organized by CQST where students present their work on quantum computing and we host talks from guest researchers in the field. Join us as we explore the fascinating world of quantum information and quantum technologies.</p>
+            
+            <h4 class="mt-5">Featured Talk</h4>
+            <div class="video-container">
+                <div class="ratio ratio-16x9">
+                    <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Sample Seminar Video" allowfullscreen></iframe>
+                </div>
+            </div>
+        </main>
 
-  <footer>
-    <p>Contact: <a href="mailto:websimnar@cqst.edu">websimnar@cqst.edu</a></p>
-  </footer>
+        <!-- Speakers Section -->
+        <section class="speakers-section">
+            <h3>Featured Speakers</h3>
+            <div class="speakers-grid">
+                <div class="speaker-card">
+                    <div class="speaker-photo">
+                        <div style="width: 100%; height: 100%; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 2.5rem; font-weight: 600;">
+                            AQ
+                        </div>
+                    </div>
+                    <div class="speaker-name">Dr. Alice Quantum</div>
+                    <div class="speaker-title">Professor of Quantum Computing</div>
+                    <div class="speaker-affiliation">MIT Quantum Research Lab</div>
+                    <div class="speaker-bio">Leading researcher in quantum algorithms and quantum error correction with over 15 years of experience in quantum information science.</div>
+                </div>
+
+                <div class="speaker-card">
+                    <div class="speaker-photo">
+                        <div style="width: 100%; height: 100%; background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 2.5rem; font-weight: 600;">
+                            BE
+                        </div>
+                    </div>
+                    <div class="speaker-name">Prof. Bob Entanglement</div>
+                    <div class="speaker-title">Director of Quantum Communications</div>
+                    <div class="speaker-affiliation">Stanford Quantum Institute</div>
+                    <div class="speaker-bio">Pioneer in quantum cryptography and quantum networking protocols, focusing on scalable quantum communication systems.</div>
+                </div>
+
+                <div class="speaker-card">
+                    <div class="speaker-photo">
+                        <div style="width: 100%; height: 100%; background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 2.5rem; font-weight: 600;">
+                            CS
+                        </div>
+                    </div>
+                    <div class="speaker-name">Dr. Carol Superposition</div>
+                    <div class="speaker-title">Senior Research Scientist</div>
+                    <div class="speaker-affiliation">IBM Quantum Network</div>
+                    <div class="speaker-bio">Expert in quantum machine learning and hybrid quantum-classical algorithms for optimization problems.</div>
+                </div>
+
+                <div class="speaker-card">
+                    <div class="speaker-photo">
+                        <div style="width: 100%; height: 100%; background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #2d3748; font-size: 2.5rem; font-weight: 600;">
+                            DT
+                        </div>
+                    </div>
+                    <div class="speaker-name">Prof. David Teleportation</div>
+                    <div class="speaker-title">Head of Quantum Physics Department</div>
+                    <div class="speaker-affiliation">Oxford University</div>
+                    <div class="speaker-bio">Theoretical physicist specializing in quantum foundations and quantum information theory with focus on many-body systems.</div>
+                </div>
+
+                <div class="speaker-card">
+                    <div class="speaker-photo">
+                        <div style="width: 100%; height: 100%; background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #2d3748; font-size: 2.5rem; font-weight: 600;">
+                            EQ
+                        </div>
+                    </div>
+                    <div class="speaker-name">Dr. Eve Qubit</div>
+                    <div class="speaker-title">Principal Quantum Engineer</div>
+                    <div class="speaker-affiliation">Google Quantum AI</div>
+                    <div class="speaker-bio">Hardware specialist in superconducting quantum processors and quantum device characterization for fault-tolerant computing.</div>
+                </div>
+
+                <div class="speaker-card">
+                    <div class="speaker-photo">
+                        <div style="width: 100%; height: 100%; background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #2d3748; font-size: 2.5rem; font-weight: 600;">
+                            FD
+                        </div>
+                    </div>
+                    <div class="speaker-name">Prof. Frank Decoherence</div>
+                    <div class="speaker-title">Distinguished Professor</div>
+                    <div class="speaker-affiliation">Caltech Quantum Science</div>
+                    <div class="speaker-bio">Renowned for work in quantum control theory and developing techniques for maintaining quantum coherence in noisy environments.</div>
+                </div>
+            </div>
+        </section>
+
+        <footer class="text-center mt-5">
+            <p><i class="fas fa-envelope me-2"></i>Contact: <a href="mailto:websimnar@cqst.edu">websimnar@cqst.edu</a></p>
+            <div class="social-links">
+                <a href="https://twitter.com" target="_blank">
+                    <i class="fab fa-twitter"></i>
+                    Twitter
+                </a>
+                <a href="https://linkedin.com" target="_blank">
+                    <i class="fab fa-linkedin"></i>
+                    LinkedIn
+                </a>
+                <a href="https://youtube.com" target="_blank">
+                    <i class="fab fa-youtube"></i>
+                    YouTube
+                </a>
+            </div>
+        </footer>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Remove waveCanvas and add floating particles
+        // Particle colors
+        const particleColors = [
+            'rgba(79,172,254,0.18)',
+            'rgba(128,90,213,0.15)',
+            'rgba(240,147,251,0.13)',
+            'rgba(245,87,108,0.10)',
+            'rgba(255,236,210,0.13)',
+            'rgba(255,154,158,0.13)'
+        ];
+        const particleBg = document.querySelector('.particle-bg');
+        const numParticles = 36;
+
+        function randomBetween(a, b) {
+            return a + Math.random() * (b - a);
+        }
+
+        for (let i = 0; i < numParticles; i++) {
+            const particle = document.createElement('div');
+            particle.className = 'particle';
+            const size = randomBetween(32, 90);
+            particle.style.width = `${size}px`;
+            particle.style.height = `${size}px`;
+            particle.style.background = particleColors[Math.floor(Math.random() * particleColors.length)];
+            particle.style.left = `${randomBetween(0, 100)}vw`;
+            particle.style.top = `${randomBetween(0, 100)}vh`;
+            particle.style.opacity = randomBetween(0.25, 0.55);
+            const duration = randomBetween(18, 38);
+            const delay = randomBetween(0, 10);
+            particle.style.animationDuration = `${duration}s`;
+            particle.style.animationDelay = `${delay}s`;
+            particleBg.appendChild(particle);
+        }
+    </script>
 </body>
 </html>
