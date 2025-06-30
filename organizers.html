@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Speakers - QSQT 2025 @ CQST</title>
+    <title>Organizers - QSQT 2025 @ CQST</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -277,14 +277,33 @@
             border-radius: 2px;
         }
 
-        .speakers-grid {
+        .section-title {
+            font-size: 2rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin: 3rem 0 1.5rem 0;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -6px;
+            left: 0;
+            width: 40px;
+            height: 3px;
+            background: var(--accent-gradient);
+            border-radius: 2px;
+        }
+
+        .organizers-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
             gap: 2rem;
             margin-top: 2rem;
         }
 
-        .speaker-card {
+        .organizer-card {
             background: rgba(255, 255, 255, 0.9);
             border-radius: 20px;
             padding: 2rem;
@@ -301,7 +320,7 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
-        .speaker-card::before {
+        .organizer-card::before {
             content: '';
             position: absolute;
             top: 0;
@@ -312,18 +331,18 @@
             transition: left 0.3s ease;
         }
 
-        .speaker-card:hover {
+        .organizer-card:hover {
             transform: translateY(-8px);
             box-shadow: 0 20px 40px rgba(102, 126, 234, 0.2);
         }
 
-        .speaker-card:hover::before {
+        .organizer-card:hover::before {
             left: 0;
         }
 
-        .speaker-photo {
-            width: 140px;
-            height: 140px;
+        .organizer-photo {
+            width: 120px;
+            height: 120px;
             border-radius: 50%;
             margin: 0 auto 1.5rem;
             position: relative;
@@ -334,46 +353,110 @@
             transition: all 0.3s ease;
         }
 
-        .speaker-photo > div {
+        .organizer-photo > div {
             width: 100%;
             height: 100%;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 2.5rem;
+            font-size: 2rem;
             font-weight: 600;
         }
 
-        .speaker-card:hover .speaker-photo {
+        .organizer-card:hover .organizer-photo {
             transform: scale(1.05);
             box-shadow: 0 10px 30px rgba(79, 172, 254, 0.3);
         }
 
-        .speaker-name {
-            font-size: 1.5rem;
+        .organizer-name {
+            font-size: 1.4rem;
             font-weight: 600;
             color: var(--text-primary);
             margin-bottom: 0.5rem;
         }
 
-        .speaker-title {
+        .organizer-role {
             font-size: 1.1rem;
-            color: var(--quantum-blue);
+            color: var(--quantum-purple);
             font-weight: 500;
             margin-bottom: 0.5rem;
         }
 
-        .speaker-affiliation {
+        .organizer-affiliation {
             font-size: 1rem;
             color: var(--text-secondary);
             margin-bottom: 1rem;
         }
 
-        .speaker-bio {
+        .organizer-contact {
+            font-size: 0.9rem;
+            color: var(--quantum-blue);
+            margin-bottom: 1rem;
+        }
+
+        .organizer-contact a {
+            color: var(--quantum-blue);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .organizer-contact a:hover {
+            color: var(--quantum-purple);
+            text-decoration: underline;
+        }
+
+        .organizer-bio {
             font-size: 0.95rem;
             color: var(--text-secondary);
             line-height: 1.6;
+        }
+
+        .committee-section {
+            background: rgba(255, 255, 255, 0.6);
+            border-radius: 16px;
+            padding: 2rem;
+            margin: 2rem 0;
+            border: 1px solid rgba(79, 172, 254, 0.1);
+        }
+
+        .committee-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .committee-member {
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 12px;
+            padding: 1.5rem;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(79, 172, 254, 0.05);
+        }
+
+        .committee-member:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 25px rgba(102, 126, 234, 0.15);
+        }
+
+        .committee-member-name {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .committee-member-role {
+            font-size: 1rem;
+            color: var(--quantum-blue);
+            font-weight: 500;
+            margin-bottom: 0.3rem;
+        }
+
+        .committee-member-affiliation {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
         }
 
         footer {
@@ -468,7 +551,11 @@
                 align-items: center;
             }
 
-            .speakers-grid {
+            .organizers-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .committee-list {
                 grid-template-columns: 1fr;
             }
         }
@@ -508,144 +595,171 @@
             <nav class="nav justify-content-center">
                 <a class="nav-link" href="index.html"><i class="fas fa-home me-2"></i>Home</a>
                 <a class="nav-link" href="schedule.html"><i class="fas fa-calendar me-2"></i>Schedule</a>
-                <a class="nav-link active" href="speakers.html"><i class="fas fa-users me-2"></i>Speakers</a>
+                <a class="nav-link" href="speakers.html"><i class="fas fa-users me-2"></i>Speakers</a>
                 <a class="nav-link" href="registration.html"><i class="fas fa-user-plus me-2"></i>Register</a>
                 <a class="nav-link" href="past-talks.html"><i class="fas fa-history me-2"></i>Past Talks</a>
-                <a class="nav-link" href="organizers.html"><i class="fas fa-cogs me-2"></i>Organizers</a>
+                <a class="nav-link active" href="organizers.html"><i class="fas fa-cogs me-2"></i>Organizers</a>
             </nav>
         </header>
 
         <main>
-            <h3>Our Distinguished Speakers</h3>
-            <p>Meet the renowned experts who will be sharing their cutting-edge research and insights in quantum science and technology.</p>
+            <h3>Our Organizing Team</h3>
+            <p>Meet the dedicated team behind QSQT 2025, bringing together the quantum science community for cutting-edge research and collaboration.</p>
             
-            <div class="speakers-grid">
-                <div class="speaker-card">
-                    <div class="speaker-photo">
+            <div class="organizers-grid">
+                <div class="organizer-card">
+                    <div class="organizer-photo">
                         <div style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); color: white;">
-                            DR
+                            PD
                         </div>
                     </div>
-                    <div class="speaker-name">Dr. Alice Richardson</div>
-                    <div class="speaker-title">Professor of Quantum Physics</div>
-                    <div class="speaker-affiliation">MIT Quantum Computing Lab</div>
-                    <div class="speaker-bio">Leading researcher in quantum error correction and fault-tolerant quantum computing. Her work focuses on developing practical quantum algorithms for near-term quantum devices.</div>
+                    <div class="organizer-name">Prof. Dr. Elena Patel</div>
+                    <div class="organizer-role">Conference Chair</div>
+                    <div class="organizer-affiliation">Director, Centre for Quantum Science and Technology</div>
+                    <div class="organizer-contact">
+                        <i class="fas fa-envelope me-1"></i>
+                        <a href="mailto:elena.patel@cqst.edu">elena.patel@cqst.edu</a>
+                    </div>
+                    <div class="organizer-bio">Leading quantum researcher with 15+ years of experience in quantum computing and information theory. Spearheading the vision for QSQT as a premier platform for quantum science advancement.</div>
                 </div>
 
-                <div class="speaker-card">
-                    <div class="speaker-photo">
+                <div class="organizer-card">
+                    <div class="organizer-photo">
                         <div style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); color: white;">
                             DR
                         </div>
                     </div>
-                    <div class="speaker-name">Dr. Benjamin Chen</div>
-                    <div class="speaker-title">Senior Research Scientist</div>
-                    <div class="speaker-affiliation">Google Quantum AI</div>
-                    <div class="speaker-bio">Expert in quantum machine learning and quantum optimization algorithms. Currently working on quantum advantage demonstrations in optimization problems.</div>
+                    <div class="organizer-name">Dr. Raj Kumar</div>
+                    <div class="organizer-role">Program Committee Chair</div>
+                    <div class="organizer-affiliation">Associate Professor, CQST</div>
+                    <div class="organizer-contact">
+                        <i class="fas fa-envelope me-1"></i>
+                        <a href="mailto:raj.kumar@cqst.edu">raj.kumar@cqst.edu</a>
+                    </div>
+                    <div class="organizer-bio">Expert in quantum algorithms and complexity theory. Responsible for curating the technical program and ensuring the highest quality of scientific content for the symposium.</div>
                 </div>
 
-                <div class="speaker-card">
-                    <div class="speaker-photo">
+                <div class="organizer-card">
+                    <div class="organizer-photo">
                         <div style="background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%); color: #2d3748;">
                             DR
                         </div>
                     </div>
-                    <div class="speaker-name">Dr. Maria Santos</div>
-                    <div class="speaker-title">Associate Professor</div>
-                    <div class="speaker-affiliation">Oxford University Physics Department</div>
-                    <div class="speaker-bio">Specializes in quantum many-body systems and quantum phase transitions. Her research bridges theoretical quantum physics with experimental implementations.</div>
+                    <div class="organizer-name">Dr. Lisa Chen</div>
+                    <div class="organizer-role">Local Arrangements Chair</div>
+                    <div class="organizer-affiliation">Senior Research Scientist, CQST</div>
+                    <div class="organizer-contact">
+                        <i class="fas fa-envelope me-1"></i>
+                        <a href="mailto:lisa.chen@cqst.edu">lisa.chen@cqst.edu</a>
+                    </div>
+                    <div class="organizer-bio">Organizing logistics and ensuring smooth operations for all attendees. Specializes in quantum optics and has extensive experience in conference management.</div>
                 </div>
 
-                <div class="speaker-card">
-                    <div class="speaker-photo">
+                <div class="organizer-card">
+                    <div class="organizer-photo">
                         <div style="background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%); color: #2d3748;">
                             DR
                         </div>
                     </div>
-                    <div class="speaker-name">Dr. James Wilson</div>
-                    <div class="speaker-title">Principal Scientist</div>
-                    <div class="speaker-affiliation">IBM Quantum Network</div>
-                    <div class="speaker-bio">Pioneer in quantum software development and quantum programming languages. Leading efforts in making quantum computing accessible to broader scientific communities.</div>
-                </div>
-
-                <div class="speaker-card">
-                    <div class="speaker-photo">
-                        <div style="background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%); color: #2d3748;">
-                            DR
-                        </div>
+                    <div class="organizer-name">Dr. Michael Rodriguez</div>
+                    <div class="organizer-role">Industry Liaison Chair</div>
+                    <div class="organizer-affiliation">Principal Investigator, CQST</div>
+                    <div class="organizer-contact">
+                        <i class="fas fa-envelope me-1"></i>
+                        <a href="mailto:michael.rodriguez@cqst.edu">michael.rodriguez@cqst.edu</a>
                     </div>
-                    <div class="speaker-name">Dr. Sarah Kim</div>
-                    <div class="speaker-title">Distinguished Professor</div>
-                    <div class="speaker-affiliation">Stanford University</div>
-                    <div class="speaker-bio">Renowned expert in quantum information theory and quantum cryptography. Her work on quantum communication protocols has significant implications for secure communications.</div>
+                    <div class="organizer-bio">Bridging academia and industry partnerships. Leading efforts in quantum technology commercialization and fostering collaborations between researchers and industry leaders.</div>
                 </div>
+            </div>
 
-                <div class="speaker-card">
-                    <div class="speaker-photo">
-                        <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white;">
-                            DR
-                        </div>
+            <div class="committee-section">
+                <h4 class="section-title">Technical Program Committee</h4>
+                <div class="committee-list">
+                    <div class="committee-member">
+                        <div class="committee-member-name">Dr. Priya Sharma</div>
+                        <div class="committee-member-role">Quantum Computing Track</div>
+                        <div class="committee-member-affiliation">IIT Delhi</div>
                     </div>
-                    <div class="speaker-name">Dr. Ahmed Hassan</div>
-                    <div class="speaker-title">Research Director</div>
-                    <div class="speaker-affiliation">Quantum Technologies Institute</div>
-                    <div class="speaker-bio">Expert in experimental quantum optics and quantum sensing applications. His research focuses on developing quantum sensors for precision measurements and medical applications.</div>
+                    <div class="committee-member">
+                        <div class="committee-member-name">Prof. Andreas Mueller</div>
+                        <div class="committee-member-role">Quantum Information Theory</div>
+                        <div class="committee-member-affiliation">Max Planck Institute</div>
+                    </div>
+                    <div class="committee-member">
+                        <div class="committee-member-name">Dr. Yuki Tanaka</div>
+                        <div class="committee-member-role">Quantum Optics</div>
+                        <div class="committee-member-affiliation">University of Tokyo</div>
+                    </div>
+                    <div class="committee-member">
+                        <div class="committee-member-name">Dr. Sophie Dubois</div>
+                        <div class="committee-member-role">Quantum Materials</div>
+                        <div class="committee-member-affiliation">École Polytechnique</div>
+                    </div>
+                    <div class="committee-member">
+                        <div class="committee-member-name">Prof. David Thompson</div>
+                        <div class="committee-member-role">Quantum Sensing</div>
+                        <div class="committee-member-affiliation">Cambridge University</div>
+                    </div>
+                    <div class="committee-member">
+                        <div class="committee-member-name">Dr. Maria Gonzalez</div>
+                        <div class="committee-member-role">Quantum Cryptography</div>
+                        <div class="committee-member-affiliation">Universidad Autónoma de Madrid</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="committee-section">
+                <h4 class="section-title">Student & Early Career Committee</h4>
+                <div class="committee-list">
+                    <div class="committee-member">
+                        <div class="committee-member-name">Dr. Arun Mehta</div>
+                        <div class="committee-member-role">Student Program Chair</div>
+                        <div class="committee-member-affiliation">CQST</div>
+                    </div>
+                    <div class="committee-member">
+                        <div class="committee-member-name">Sarah Johnson</div>
+                        <div class="committee-member-role">Student Volunteer Coordinator</div>
+                        <div class="committee-member-affiliation">PhD Student, CQST</div>
+                    </div>
+                    <div class="committee-member">
+                        <div class="committee-member-name">Alex Kumar</div>
+                        <div class="committee-member-role">Workshop Coordinator</div>
+                        <div class="committee-member-affiliation">Postdoc, CQST</div>
+                    </div>
+                    <div class="committee-member">
+                        <div class="committee-member-name">Dr. Emma Watson</div>
+                        <div class="committee-member-role">Mentorship Program</div>
+                        <div class="committee-member-affiliation">Early Career Researcher, CQST</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="committee-section">
+                <h4 class="section-title">Administrative Support</h4>
+                <div class="committee-list">
+                    <div class="committee-member">
+                        <div class="committee-member-name">Ms. Kavya Reddy</div>
+                        <div class="committee-member-role">Conference Manager</div>
+                        <div class="committee-member-affiliation">CQST Administration</div>
+                    </div>
+                    <div class="committee-member">
+                        <div class="committee-member-name">Mr. Rohan Gupta</div>
+                        <div class="committee-member-role">Registration & Finance</div>
+                        <div class="committee-member-affiliation">CQST Administration</div>
+                    </div>
+                    <div class="committee-member">
+                        <div class="committee-member-name">Ms. Anita Verma</div>
+                        <div class="committee-member-role">IT & Web Support</div>
+                        <div class="committee-member-affiliation">CQST Technical Team</div>
+                    </div>
+                    <div class="committee-member">
+                        <div class="committee-member-name">Mr. Deepak Joshi</div>
+                        <div class="committee-member-role">Audio/Visual Coordinator</div>
+                        <div class="committee-member-affiliation">CQST Technical Team</div>
+                    </div>
                 </div>
             </div>
         </main>
 
         <footer class="text-center mt-5">
-            <p><i class="fas fa-envelope me-2"></i>Contact: <a href="mailto:websimnar@cqst.edu">websimnar@cqst.edu</a></p>
-            <div class="social-links">
-                <a href="https://twitter.com" target="_blank">
-                    <i class="fab fa-twitter"></i>
-                    Twitter
-                </a>
-                <a href="https://linkedin.com" target="_blank">
-                    <i class="fab fa-linkedin"></i>
-                    LinkedIn
-                </a>
-                <a href="https://youtube.com" target="_blank">
-                    <i class="fab fa-youtube"></i>
-                    YouTube
-                </a>
-            </div>
-        </footer>
-    </div>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script>
-        const particleColors = [
-            'rgba(79,172,254,0.18)',
-            'rgba(128,90,213,0.15)',
-            'rgba(240,147,251,0.13)',
-            'rgba(245,87,108,0.10)',
-            'rgba(255,236,210,0.13)',
-            'rgba(255,154,158,0.13)'
-        ];
-        const particleBg = document.querySelector('.particle-bg');
-        const numParticles = 36;
-
-        function randomBetween(a, b) {
-            return a + Math.random() * (b - a);
-        }
-
-        for (let i = 0; i < numParticles; i++) {
-            const particle = document.createElement('div');
-            particle.className = 'particle';
-            const size = randomBetween(32, 90);
-            particle.style.width = `${size}px`;
-            particle.style.height = `${size}px`;
-            particle.style.background = particleColors[Math.floor(Math.random() * particleColors.length)];
-            particle.style.left = `${randomBetween(0, 100)}vw`;
-            particle.style.top = `${randomBetween(0, 100)}vh`;
-            particle.style.opacity = randomBetween(0.25, 0.55);
-            const duration = randomBetween(18, 38);
-            const delay = randomBetween(0, 10);
-            particle.style.animationDuration = `${duration}s`;
-            particle.style.animationDelay = `${delay}s`;
-            particleBg.appendChild(particle);
-        }
-    </script>
-</body>
-</html>
+            <p><i class="fas fa-envelope me-2"></i>Contact
