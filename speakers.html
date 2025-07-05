@@ -334,16 +334,20 @@
             transition: all 0.3s ease;
         }
 
-        .speaker-photo > div {
+        .speaker-photo img {
             width: 100%;
             height: 100%;
             border-radius: 50%;
+            object-fit: cover;
+            background: #e2e8f0;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 2.5rem;
-            font-weight: 600;
+            font-size: 3rem;
+            color: var(--text-secondary);
         }
+
+        
 
         .speaker-card:hover .speaker-photo {
             transform: scale(1.05);
@@ -520,116 +524,496 @@
             <p>Meet the renowned experts who will be sharing their cutting-edge research and insights in quantum science and technology.</p>
             
             <div class="speakers-grid">
+
+                <div class="speaker-card">
+                    <div class="speaker-photo">
+                        <img src="images/Alok_K_Pan.jpg" alt="alt">
+                        <div style="width: 100%; height: 100%; background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); border-radius: 50%; flex:auto;display: flex; align-items: center; justify-content: center; color: white; font-size: 2.5rem; font-weight: 600;">
+                            BE
+                        </div>
+                    </div>
+                    <div class="speaker-name"> Prof. Alok K Pan </div>
+                    <div class="speaker-affiliation">IIT Hyderabad</div>
+                    <div class="speaker-bio"></div>
+                </div>
+
+                
+
               <div class="speaker-card">
-                <div class="speaker-photo">
-                        <img src="images/Alok_Kumar_Pan.jpg" alt="Alok Kumar Pan">
+                    <div class="speaker-photo">
+                        <img src="images/Vivek_Vyas.jpg" alt="alt">
                         <div style="width: 100%; height: 100%; background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 2.5rem; font-weight: 600;">
                             BE
                         </div>
                     </div>
-                    <div class="speaker-name">Alok Kumar Pan</div>
-                    <div class="speaker-affiliation">IIT Hydrabad</div>
+                    <div class="speaker-name"> Prof. Vivek Vyas </div>
+                    <div class="speaker-affiliation">IIIT Vadodara</div>
                     <div class="speaker-bio"></div>
                 </div>
 
-                <div class="speaker-card">
-                    <div class="speaker-photo">
-                        <img src="images/Pankal Agrawal.jpg" alt="Pankaj Agarwal">
-                        <div style="width: 100%; height: 100%; background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 2.5rem; font-weight: 600;">
-                            CS
-                        </div>
-                    </div>
-                    <div class="speaker name">Pankaj Agarwal</div>
-                   
-                    <div class="IOP Bhubhneswar"></div>
-                    <div class="speaker-bio"></div>
-                </div>
-                <div class="speaker-card">
-                    <div class="speaker-photo">
-                        <img src="images/Laksmi Bala.jpg" alt="s">
-                        <div style="width: 100%; height: 100%; background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 2.5rem; font-weight: 600;">
-                            CS
-                        </div>
-                    </div>
-                    <div class="Speaker name">Laksmi Bala</div>
-                    <div class="speaker-title"></div>
-                    <div class="speaker-affiliation"></div>
-                    <div class="speaker-bio"></div>
-                </div>
-                <div class="speaker-card">
-                    
-                    <div class="speaker-photo">
-                        <img src="images/Anindita Banerjee.jpg" alt="s">
-                        <div style="width: 100%; height: 100%; background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 2.5rem; font-weight: 600;">
-                            CS
-                        </div>
-                    </div>
-                    <div class="speaker-name">Anidita Banerjee</div>
-                    <div class="speaker-title">S</div>
-                    <div class="speaker-affiliation"></div>
-                    <div class="speaker-bio"></div>
-                </div>
-                <div class="speaker-card">
-                    
-                    <div class="speaker-photo">
-                        <img src="images/Bimelendu Deb.png" alt="s">
-                        <div style="width: 100%; height: 100%; background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #2d3748; font-size: 2.5rem; font-weight: 600;">
-                            DT
-                        </div>
-                    </div>
-                    <div class="speaker-name">Bimelendu Deb</div>
-                    <div class="speaker-title"> </div>
-                    <div class="speaker-affiliation"> University</div>
-                    <div class="speaker-bio"></div>
-                </div>
 
-                <div class="speaker-card">
-                    
-                    <div class="speaker-photo">
-                        <img src="images/Colin Benjamin.jpg" alt="s">
-                        <div style="width: 100%; height: 100%; background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #2d3748; font-size: 2.5rem; font-weight: 600;">
-                            
-                        </div>
-                    </div>
-                    <div class="speaker-name">Collin Benjamin</div>
-                    <div class="speaker-title"></div>
-                    <div class="speaker-affiliation"></div>
-                    <div class="speaker-bio"></div>
-                </div>
 
                 <div class="speaker-card">
                     <div class="speaker-photo">
-                        <img src="images/Devendra K. Mishra.jpg" alt="s">
-                        <div style="width: 100%; height: 100%; background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #2d3748; font-size: 2.5rem; font-weight: 600;">
-                            FD
-                        </div>
-                    </div>
-                    <div class="speaker-name">Devendra K. Mishra</div>
-                    <div class="speaker-title"></div>
-                    <div class="speaker-affiliation"></div>
-                    <div class="speaker-bio"></div>
-                </div>
-                <div class="speaker-card">
-                    <div class="speaker-photo">
-                        <img src="images/Dipankar Home.jpg" alt="Dipanakr Home">
+                        <img src="images/V._Balakrishnan.jpg" alt="alt">
                         <div style="width: 100%; height: 100%; background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 2.5rem; font-weight: 600;">
+                            BE
                         </div>
                     </div>
-                    <div class="speaker-name">Dipankar Home</div>
-                    <div class="speaker-affiliation"></div>
+                    <div class="speaker-name"> Prof. V. Balakrishnan </div>
+                    <div class="speaker-affiliation">IIT Madras</div>
                     <div class="speaker-bio"></div>
                 </div>
+
+
+
                 <div class="speaker-card">
                     <div class="speaker-photo">
-                        <img src="images/Sudhees-Chethil_0.jpg" alt="Dipanakr Home">
+                        <img src="images/Utpal_Roy.jpg" alt="alt">
                         <div style="width: 100%; height: 100%; background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 2.5rem; font-weight: 600;">
+                            BE
                         </div>
                     </div>
-                    <div class="speaker-name">Sudheesh Chethil</div>
-                    <div class="speaker-affiliation"></div>
+                    <div class="speaker-name"> Prof. Utpal Roy </div>
+                    <div class="speaker-affiliation">IIT Patna</div>
                     <div class="speaker-bio"></div>
                 </div>
-            
+
+
+
+                <div class="speaker-card">
+                    <div class="speaker-photo">
+                        <img src="images/Tamal_Ghosh.jpg" alt="alt">
+                        <div style="width: 100%; height: 100%; background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 2.5rem; font-weight: 600;">
+                            BE
+                        </div>
+                    </div>
+                    <div class="speaker-name"> Tamal Ghosh </div>
+                    <div class="speaker-affiliation">TBD</div>
+                    <div class="speaker-bio"></div>
+                </div>
+
+
+
+                <div class="speaker-card">
+                    <div class="speaker-photo">
+                        <img src="images/Bimalendu_Deb.jpg" alt="alt">
+                        <div style="width: 100%; height: 100%; background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 2.5rem; font-weight: 600;">
+                            BE
+                        </div>
+                    </div>
+                    <div class="speaker-name"> Prof. Bimalendu Deb </div>
+                    <div class="speaker-affiliation">IACS</div>
+                    <div class="speaker-bio"></div>
+                </div>
+
+
+
+                <div class="speaker-card">
+                    <div class="speaker-photo">
+                        <img src="images/Arun_K._Pati.jpg" alt="alt">
+                        <div style="width: 100%; height: 100%; background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 2.5rem; font-weight: 600;">
+                            BE
+                        </div>
+                    </div>
+                    <div class="speaker-name"> Prof. Arun K. Pati </div>
+                    <div class="speaker-affiliation">HRI</div>
+                    <div class="speaker-bio"></div>
+                </div>
+
+
+
+                <div class="speaker-card">
+                    <div class="speaker-photo">
+                        <img src="images/Kumar_Abhinav.jpg" alt="alt">
+                        <div style="width: 100%; height: 100%; background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 2.5rem; font-weight: 600;">
+                            BE
+                        </div>
+                    </div>
+                    <div class="speaker-name"> Prof. Kumar Abhinav </div>
+                    <div class="speaker-affiliation">TBD</div>
+                    <div class="speaker-bio"></div>
+                </div>
+
+
+
+                <div class="speaker-card">
+                    <div class="speaker-photo">
+                        <img src="images/Collin_Benjamin.jpg" alt="alt">
+                        <div style="width: 100%; height: 100%; background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 2.5rem; font-weight: 600;">
+                            BE
+                        </div>
+                    </div>
+                    <div class="speaker-name"> Prof. Collin Benjamin </div>
+                    <div class="speaker-affiliation">NISER Bhubaneshwar</div>
+                    <div class="speaker-bio"></div>
+                </div>
+
+
+
+                <div class="speaker-card">
+                    <div class="speaker-photo">
+                        <img src="images/Ritabrata_Sengupta.jpg" alt="alt">
+                        <div style="width: 100%; height: 100%; background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 2.5rem; font-weight: 600;">
+                            BE
+                        </div>
+                    </div>
+                    <div class="speaker-name"> Prof. Ritabrata Sengupta </div>
+                    <div class="speaker-affiliation">IISER Beherampur</div>
+                    <div class="speaker-bio"></div>
+                </div>
+
+
+
+                <div class="speaker-card">
+                    <div class="speaker-photo">
+                        <img src="images/Lakshmi_Bala.jpg" alt="alt">
+                        <div style="width: 100%; height: 100%; background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 2.5rem; font-weight: 600;">
+                            BE
+                        </div>
+                    </div>
+                    <div class="speaker-name"> Prof. Lakshmi Bala </div>
+                    <div class="speaker-affiliation">IIT Madras</div>
+                    <div class="speaker-bio"></div>
+                </div>
+
+
+
+                <div class="speaker-card">
+                    <div class="speaker-photo">
+                        <img src="images/Ajay_Nath.jpg" alt="alt">
+                        <div style="width: 100%; height: 100%; background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 2.5rem; font-weight: 600;">
+                            BE
+                        </div>
+                    </div>
+                    <div class="speaker-name"> Prof. Ajay Nath </div>
+                    <div class="speaker-affiliation">IIIT Vadodara</div>
+                    <div class="speaker-bio"></div>
+                </div>
+
+
+
+                <div class="speaker-card">
+                    <div class="speaker-photo">
+                        <img src="images/Ashok_Kumar.jpg" alt="alt">
+                        <div style="width: 100%; height: 100%; background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 2.5rem; font-weight: 600;">
+                            BE
+                        </div>
+                    </div>
+                    <div class="speaker-name"> Prof. Ashok Kumar </div>
+                    <div class="speaker-affiliation">IIT Kanpur</div>
+                    <div class="speaker-bio"></div>
+                </div>
+
+
+
+                <div class="speaker-card">
+                    <div class="speaker-photo">
+                        <img src="images/Debashis_Saha.jpg" alt="alt">
+                        <div style="width: 100%; height: 100%; background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 2.5rem; font-weight: 600;">
+                            BE
+                        </div>
+                    </div>
+                    <div class="speaker-name"> Prof. Debashis Saha </div>
+                    <div class="speaker-affiliation">IIT Bhubaneshwar</div>
+                    <div class="speaker-bio"></div>
+                </div>
+
+
+
+                <div class="speaker-card">
+                    <div class="speaker-photo">
+                        <img src="images/Chiranjib_Mitra.jpg" alt="alt">
+                        <div style="width: 100%; height: 100%; background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 2.5rem; font-weight: 600;">
+                            BE
+                        </div>
+                    </div>
+                    <div class="speaker-name"> Prof. Chiranjib Mitra </div>
+                    <div class="speaker-affiliation">IISER Kolkata</div>
+                    <div class="speaker-bio"></div>
+                </div>
+
+
+
+                <div class="speaker-card">
+                    <div class="speaker-photo">
+                        <img src="images/Pankaj_Agarwal.jpg" alt="alt">
+                        <div style="width: 100%; height: 100%; background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 2.5rem; font-weight: 600;">
+                            BE
+                        </div>
+                    </div>
+                    <div class="speaker-name"> Prof. Pankaj Agarwal </div>
+                    <div class="speaker-affiliation">TCG Crest</div>
+                    <div class="speaker-bio"></div>
+                </div>
+
+
+
+                <div class="speaker-card">
+                    <div class="speaker-photo">
+                        <img src="images/Pragya_Shukla.jpg" alt="alt">
+                        <div style="width: 100%; height: 100%; background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 2.5rem; font-weight: 600;">
+                            BE
+                        </div>
+                    </div>
+                    <div class="speaker-name"> Prof. Pragya Shukla </div>
+                    <div class="speaker-affiliation">IIT Kharagpur</div>
+                    <div class="speaker-bio"></div>
+                </div>
+
+
+
+                <div class="speaker-card">
+                    <div class="speaker-photo">
+                        <img src="images/Ramachandrarao_Yalla.jpg" alt="alt">
+                        <div style="width: 100%; height: 100%; background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); border-radius: 50%; display:flex ; align-items: center; justify-content:center  ; color: white; font-size: 2.5rem; font-weight: 600;">
+                            BE
+                        </div>
+                    </div>
+                    <div class="speaker-name"> Prof. Ramachandrarao Yalla </div>
+                    <div class="speaker-affiliation">University of Hyderabad</div>
+                    <div class="speaker-bio"></div>
+                </div>
+
+
+
+                <div class="speaker-card">
+                    <div class="speaker-photo">
+                        <img src="images/Sunethra_Ramanan.jpg" alt="alt">
+                        <div style="width: 100%; height: 100%; background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 2.5rem; font-weight: 600;">
+                            BE
+                        </div>
+                    </div>
+                    <div class="speaker-name"> Prof. Sunethra Ramanan </div>
+                    <div class="speaker-affiliation">IIT Madras</div>
+                    <div class="speaker-bio"></div>
+                </div>
+
+
+
+                <div class="speaker-card">
+                    <div class="speaker-photo">
+                        <img src="images/Jayanta_Bera.jpg" alt="alt">
+                        <div style="width: 100%; height: 100%; background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 2.5rem; font-weight: 600;">
+                            BE
+                        </div>
+                    </div>
+                    <div class="speaker-name"> Prof. Jayanta Bera </div>
+                    <div class="speaker-affiliation">NIMS Japan</div>
+                    <div class="speaker-bio"></div>
+                </div>
+
+
+
+                <div class="speaker-card">
+                    <div class="speaker-photo">
+                        <img src="images/Sukanta_K._Tripathy.jpg" alt="alt">
+                        <div style="width: 100%; height: 100%; background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 2.5rem; font-weight: 600;">
+                            BE
+                        </div>
+                    </div>
+                    <div class="speaker-name"> Prof. Sukanta K. Tripathy </div>
+                    <div class="speaker-affiliation">Berhampur University</div>
+                    <div class="speaker-bio"></div>
+                </div>
+
+
+
+                <div class="speaker-card">
+                    <div class="speaker-photo">
+                        <img src="images/Tapan_Mishra.jpg" alt="alt">
+                        <div style="width: 100%; height: 100%; background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 2.5rem; font-weight: 600;">
+                            BE
+                        </div>
+                    </div>
+                    <div class="speaker-name"> Prof. Tapan Mishra </div>
+                    <div class="speaker-affiliation">NISER Bhubaneshwar</div>
+                    <div class="speaker-bio"></div>
+                </div>
+
+
+
+                <div class="speaker-card">
+                    <div class="speaker-photo">
+                        <img src="images/Soumik_Mahanti_/_Mandar_Thatte.jpg" alt="alt">
+                        <div style="width: 100%; height: 100%; background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 2.5rem; font-weight: 600;">
+                            BE
+                        </div>
+                    </div>
+                    <div class="speaker-name"> Soumik Mahanti / Mandar Thatte </div>
+                    <div class="speaker-affiliation">TBD</div>
+                    <div class="speaker-bio"></div>
+                </div>
+
+
+
+                <div class="speaker-card">
+                    <div class="speaker-photo">
+                        <img src="images/V.S._Ashoka.jpg" alt="alt">
+                        <div style="width: 100%; height: 100%; background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 2.5rem; font-weight: 600;">
+                            BE
+                        </div>
+                    </div>
+                    <div class="speaker-name"> Prof. V.S. Ashoka </div>
+                    <div class="speaker-affiliation">University of Hyderabad</div>
+                    <div class="speaker-bio"></div>
+                </div>
+
+
+
+                <div class="speaker-card">
+                    <div class="speaker-photo">
+                        <img src="images/Anindita_Banerjee.jpg" alt="alt">
+                        <div style="width: 100%; height: 100%; background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 2.5rem; font-weight: 600;">
+                            BE
+                        </div>
+                    </div>
+                    <div class="speaker-name"> Prof. Anindita Banerjee </div>
+                    <div class="speaker-affiliation">CDAC Pune</div>
+                    <div class="speaker-bio"></div>
+                </div>
+
+
+
+                <div class="speaker-card">
+                    <div class="speaker-photo">
+                        <img src="images/Dipankar_Home.jpg" alt="alt">
+                        <div style="width: 100%; height: 100%; background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 2.5rem; font-weight: 600;">
+                            BE
+                        </div>
+                    </div>
+                    <div class="speaker-name"> Prof.Dipankar Home </div>
+                    <div class="speaker-affiliation">Bose Institute</div>
+                    <div class="speaker-bio"></div>
+                </div>
+
+
+
+                <div class="speaker-card">
+                    <div class="speaker-photo">
+                        <img src="images/Dr._Ramita_Sarkar.jpg" alt="alt">
+                        <div style="width: 100%; height: 100%; background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 2.5rem; font-weight: 600;">
+                            BE
+                        </div>
+                    </div>
+                    <div class="speaker-name"> Dr. Ramita Sarkar </div>
+                    <div class="speaker-affiliation">TBD</div>
+                    <div class="speaker-bio"></div>
+                </div>
+
+
+
+                <div class="speaker-card">
+                    <div class="speaker-photo">
+                        <img src="images/Dr._Suchetana_Pal_/_Nitish_Kumar_Chandra.jpg" alt="alt">
+                        <div style="width: 100%; height: 100%; background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 2.5rem; font-weight: 600;">
+                            BE
+                        </div>
+                    </div>
+                    <div class="speaker-name"> Dr. Suchetana Pal / Nitish Kumar Chandra </div>
+                    <div class="speaker-affiliation">TBD</div>
+                    <div class="speaker-bio"></div>
+                </div>
+
+
+
+                <div class="speaker-card">
+                    <div class="speaker-photo">
+                        <img src="images/Dr._Mithilesh_K._Parit_/_Dr._Ashok_Sahu.jpg" alt="alt">
+                        <div style="width: 100%; height: 100%; background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 2.5rem; font-weight: 600;">
+                            BE
+                        </div>
+                    </div>
+                    <div class="speaker-name"> Dr. Mithilesh K. Parit / Dr. Ashok Sahu </div>
+                    <div class="speaker-affiliation">TBD</div>
+                    <div class="speaker-bio"></div>
+                </div>
+
+
+
+                <div class="speaker-card">
+                    <div class="speaker-photo">
+                        <img src="images/Dr._Manali_Verma/Amit_Mohapatra.jpg" alt="alt">
+                        <div style="width: 100%; height: 100%; background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 2.5rem; font-weight: 600;">
+                            BE
+                        </div>
+                    </div>
+                    <div class="speaker-name"> Dr. Manali Verma/Amit Mohapatra </div>
+                    <div class="speaker-affiliation">TBD</div>
+                    <div class="speaker-bio"></div>
+                </div>
+
+
+                <div class="speaker-card">
+                    <div class="speaker-photo">
+                        <img src="images/Devendra_K._Mishra.jpg" alt="alt">
+                        <div style="width: 100%; height: 100%; background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 2.5rem; font-weight: 600;">
+                            BE
+                        </div>
+                    </div>
+                    <div class="speaker-name"> Prof. Devendra K. Mishra </div>
+                    <div class="speaker-affiliation">BHU</div>
+                    <div class="speaker-bio"></div>
+                </div>
+
+
+
+                <div class="speaker-card">
+                    <div class="speaker-photo">
+                        <img src="images/Amit_Rai.jpg" alt="alt">
+                        <div style="width: 100%; height: 100%; background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 2.5rem; font-weight: 600;">
+                            BE
+                        </div>
+                    </div>
+                    <div class="speaker-name"> Prof. Amit Rai </div>
+                    <div class="speaker-affiliation">JNU</div>
+                    <div class="speaker-bio"></div>
+                </div>
+
+
+
+                <div class="speaker-card">
+                    <div class="speaker-photo">
+                        <img src="images/P_K_Panigrahi.jpg" alt="alt">
+                        <div style="width: 100%; height: 100%; background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 2.5rem; font-weight: 600;">
+                            BE
+                        </div>
+                    </div>
+                    <div class="speaker-name"> Prof. P K Panigrahi</div>
+                    <div class="speaker-affiliation">SOA</div>
+                    <div class="speaker-bio"></div>
+                </div>
+
+
+
+                <div class="speaker-card">
+                    <div class="speaker-photo">
+                        <img src="images/Anand_Kumar_Jha.jpg" alt="alt">
+                        <div style="width: 100%; height: 100%; background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 2.5rem; font-weight: 600;">
+                            BE
+                        </div>
+                    </div>
+                    <div class="speaker-name"> Prof. Anand Kumar Jha </div>
+                    <div class="speaker-affiliation">IIT kanpur</div>
+                    <div class="speaker-bio"></div>
+                </div>
+
+
+
+                <div class="speaker-card">
+                    <div class="speaker-photo">
+                        <img src="images/Sudheesh_Chethil.jpg" alt="alt">
+                        <div style="width: 100%; height: 100%; background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 2.5rem; font-weight: 600;">
+                            BE
+                        </div>
+                    </div>
+                    <div class="speaker-name"> Prof. Sudheesh Chethil </div>
+                    <div class="speaker-affiliation">IIST</div>
+                    <div class="speaker-bio"></div>
+                </div>
+
+
+
                 
             </div>
         </main>
