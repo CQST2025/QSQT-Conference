@@ -1,714 +1,129 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Organizers - QSQT 2025 @ CQST</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            --secondary-gradient: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
-            --accent-gradient: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
-            --dark-bg: #0f0f23;
-            --card-bg: rgba(255, 255, 255, 0.95);
-            --text-primary: #2d3748;
-            --text-secondary: #718096;
-            --quantum-blue: #4299e1;
-            --quantum-purple: #805ad5;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Inter', sans-serif;
-            background: radial-gradient(circle at 20% 30%, #b2e0ff 0%, transparent 60%),
-                        radial-gradient(circle at 80% 70%, #e0c3fc 0%, transparent 60%),
-                        linear-gradient(120deg, #f8fafc 60%, #e0c3fc 100%);
-            min-height: 100vh;
-            color: var(--text-primary);
-            overflow-x: hidden;
-            position: relative;
-        }
-
-        body::before {
-            content: '';
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: 
-                radial-gradient(circle at 20% 30%, rgba(79, 172, 254, 0.10) 0%, transparent 40%),
-                radial-gradient(circle at 80% 70%, rgba(128, 90, 213, 0.10) 0%, transparent 40%),
-                radial-gradient(circle at 50% 50%, rgba(245, 87, 108, 0.05) 0%, transparent 50%);
-            pointer-events: none;
-            z-index: 0;
-        }
-
-        .particle-bg {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100vw;
-            height: 100vh;
-            pointer-events: none;
-            z-index: 0;
-        }
-        .particle {
-            position: absolute;
-            border-radius: 50%;
-            filter: blur(1.5px);
-            opacity: 0.35;
-            animation: floatParticle linear infinite alternate;
-        }
-        @keyframes floatParticle {
-            0% {
-                transform: translateY(0px) scale(1) rotate(0deg);
-            }
-            100% {
-                transform: translateY(-60px) scale(1.12) rotate(30deg);
-            }
-        }
-
-        .container {
-            position: relative;
-            z-index: 1;
-        }
-
-        header {
-            background: transparent;
-            padding: 2.5rem 0;
-            margin-bottom: 3rem;
-            animation: slideDown 0.8s ease-out;
-        }
-
-        @keyframes slideDown {
-            from { transform: translateY(-50px); opacity: 0; }
-            to { transform: translateY(0); opacity: 1; }
-        }
-
-        .logo-container {
-            position: relative;
-            display: inline-block;
-            margin-bottom: 1.5rem;
-            width: 140px;
-            height: 140px;
-        }
-
-        .electron-orbit {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 160px;
-            height: 160px;
-            border: 2px solid rgba(79, 172, 254, 0.3);
-            border-radius: 50%;
-            transform: translate(-50%, -50%);
-            animation: orbitRotate 4s linear infinite;
-        }
-
-        .electron-orbit::before {
-            content: '';
-            position: absolute;
-            top: -6px;
-            left: 50%;
-            width: 8px;
-            height: 8px;
-            background: radial-gradient(circle, #00f2fe, #4facfe);
-            border-radius: 50%;
-            transform: translateX(-50%);
-            box-shadow: 0 0 15px rgba(79, 172, 254, 0.8);
-            animation: electronGlow 2s ease-in-out infinite alternate;
-        }
-
-        .electron-orbit-2 {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 120px;
-            height: 120px;
-            border: 1px solid rgba(128, 90, 213, 0.3);
-            border-radius: 50%;
-            transform: translate(-50%, -50%) rotate(60deg);
-            animation: orbitRotate2 6s linear infinite reverse;
-        }
-
-        .electron-orbit-2::before {
-            content: '';
-            position: absolute;
-            top: -4px;
-            left: 50%;
-            width: 6px;
-            height: 6px;
-            background: radial-gradient(circle, #f093fb, #805ad5);
-            border-radius: 50%;
-            transform: translateX(-50%);
-            box-shadow: 0 0 12px rgba(128, 90, 213, 0.8);
-            animation: electronGlow 1.5s ease-in-out infinite alternate;
-        }
-
-        @keyframes orbitRotate {
-            from { transform: translate(-50%, -50%) rotate(0deg); }
-            to { transform: translate(-50%, -50%) rotate(360deg); }
-        }
-
-        @keyframes orbitRotate2 {
-            from { transform: translate(-50%, -50%) rotate(60deg); }
-            to { transform: translate(-50%, -50%) rotate(420deg); }
-        }
-
-        @keyframes electronGlow {
-            0% { box-shadow: 0 0 10px rgba(79, 172, 254, 0.8); }
-            100% { box-shadow: 0 0 20px rgba(79, 172, 254, 1), 0 0 30px rgba(79, 172, 254, 0.6); }
-        }
-
-        .logo-placeholder {
-            width: 120px;
-            height: 120px;
-            background: var(--primary-gradient);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 2.5rem;
-            color: white;
-            font-weight: 600;
-            position: relative;
-            z-index: 2;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-            margin: 10px;
-            animation: logoGlow 3s ease-in-out infinite alternate;
-        }
-
-        @keyframes logoGlow {
-            0% { 
-                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2), 
-                           0 0 20px rgba(79, 172, 254, 0.3);
-            }
-            100% { 
-                box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3), 
-                           0 0 40px rgba(79, 172, 254, 0.6),
-                           0 0 60px rgba(128, 90, 213, 0.4);
-            }
-        }
-
-        h1 {
-            font-size: 3.5rem;
-            font-weight: 700;
-            background: var(--primary-gradient);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            margin-bottom: 0.5rem;
-            letter-spacing: -0.02em;
-            filter: drop-shadow(0 2px 4px rgba(79, 172, 254, 0.3));
-        }
-
-        .lead {
-            font-size: 1.3rem;
-            color: var(--text-secondary);
-            font-weight: 400;
-            margin-bottom: 2rem;
-        }
-
-        .nav {
-            background: rgba(255, 255, 255, 0.8);
-            border-radius: 20px;
-            padding: 1rem;
-            backdrop-filter: blur(15px);
-            border: 1px solid rgba(79, 172, 254, 0.2);
-            box-shadow: 0 8px 32px rgba(79, 172, 254, 0.1);
-        }
-
-        .nav-link {
-            color: var(--text-primary) !important;
-            font-weight: 500;
-            padding: 0.75rem 1.5rem !important;
-            border-radius: 12px;
-            transition: all 0.3s ease;
-            position: relative;
-        }
-
-        .nav-link:hover, .nav-link.active {
-            background: var(--primary-gradient);
-            color: white !important;
-            transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(102, 126, 234, 0.4);
-        }
-
-        main {
-            background: var(--card-bg);
-            backdrop-filter: blur(20px);
-            border-radius: 24px;
-            padding: 3rem;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            animation: slideUp 0.8s ease-out 0.2s both;
-        }
-
-        @keyframes slideUp {
-            from { transform: translateY(50px); opacity: 0; }
-            to { transform: translateY(0); opacity: 1; }
-        }
-
-        h3 {
-            font-size: 2.5rem;
-            font-weight: 600;
-            color: var(--text-primary);
-            margin-bottom: 1.5rem;
-            position: relative;
-        }
-
-        h3::after {
-            content: '';
-            position: absolute;
-            bottom: -8px;
-            left: 0;
-            width: 60px;
-            height: 4px;
-            background: var(--secondary-gradient);
-            border-radius: 2px;
-        }
-
-        .section-title {
-            font-size: 2rem;
-            font-weight: 600;
-            color: var(--text-primary);
-            margin: 3rem 0 1.5rem 0;
-            position: relative;
-        }
-
-        .section-title::after {
-            content: '';
-            position: absolute;
-            bottom: -6px;
-            left: 0;
-            width: 40px;
-            height: 3px;
-            background: var(--accent-gradient);
-            border-radius: 2px;
-        }
-
-        .organizers-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-
-        .organizer-card {
-            background: rgba(255, 255, 255, 0.9);
-            border-radius: 20px;
-            padding: 2rem;
-            text-align: center;
-            transition: all 0.3s ease;
-            border: 1px solid rgba(79, 172, 254, 0.1);
-            position: relative;
-            overflow: hidden;
-            animation: fadeInUp 0.6s ease-out;
-        }
-
-        @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(30px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        .organizer-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 4px;
-            background: var(--primary-gradient);
-            transition: left 0.3s ease;
-        }
-
-        .organizer-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 20px 40px rgba(102, 126, 234, 0.2);
-        }
-
-        .organizer-card:hover::before {
-            left: 0;
-        }
-
-        .organizer-photo {
-            width: 120px;
-            height: 120px;
-            border-radius: 50%;
-            margin: 0 auto 1.5rem;
-            position: relative;
-            overflow: hidden;
-            border: 4px solid transparent;
-            background: var(--accent-gradient);
-            padding: 4px;
-            transition: all 0.3s ease;
-        }
-
-        .organizer-photo > div {
-            width: 100%;
-            height: 100%;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 2rem;
-            font-weight: 600;
-        }
-
-        .organizer-card:hover .organizer-photo {
-            transform: scale(1.05);
-            box-shadow: 0 10px 30px rgba(79, 172, 254, 0.3);
-        }
-
-        .organizer-name {
-            font-size: 1.4rem;
-            font-weight: 600;
-            color: var(--text-primary);
-            margin-bottom: 0.5rem;
-        }
-
-        .organizer-role {
-            font-size: 1.1rem;
-            color: var(--quantum-purple);
-            font-weight: 500;
-            margin-bottom: 0.5rem;
-        }
-
-        .organizer-affiliation {
-            font-size: 1rem;
-            color: var(--text-secondary);
-            margin-bottom: 1rem;
-        }
-
-        .organizer-contact {
-            font-size: 0.9rem;
-            color: var(--quantum-blue);
-            margin-bottom: 1rem;
-        }
-
-        .organizer-contact a {
-            color: var(--quantum-blue);
-            text-decoration: none;
-            transition: all 0.3s ease;
-        }
-
-        .organizer-contact a:hover {
-            color: var(--quantum-purple);
-            text-decoration: underline;
-        }
-
-        .organizer-bio {
-            font-size: 0.95rem;
-            color: var(--text-secondary);
-            line-height: 1.6;
-        }
-
-        .committee-section {
-            background: rgba(255, 255, 255, 0.6);
-            border-radius: 16px;
-            padding: 2rem;
-            margin: 2rem 0;
-            border: 1px solid rgba(79, 172, 254, 0.1);
-        }
-
-        .committee-list {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 1.5rem;
-        }
-
-        .committee-member {
-            background: rgba(255, 255, 255, 0.8);
-            border-radius: 12px;
-            padding: 1.5rem;
-            text-align: center;
-            transition: all 0.3s ease;
-            border: 1px solid rgba(79, 172, 254, 0.05);
-        }
-
-        .committee-member:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 12px 25px rgba(102, 126, 234, 0.15);
-        }
-
-        .committee-member-name {
-            font-size: 1.2rem;
-            font-weight: 600;
-            color: var(--text-primary);
-            margin-bottom: 0.5rem;
-        }
-
-        .committee-member-role {
-            font-size: 1rem;
-            color: var(--quantum-blue);
-            font-weight: 500;
-            margin-bottom: 0.3rem;
-        }
-
-        .committee-member-affiliation {
-            font-size: 0.9rem;
-            color: var(--text-secondary);
-        }
-
-        footer {
-            background: var(--card-bg);
-            backdrop-filter: blur(20px);
-            border-radius: 24px;
-            padding: 2rem;
-            margin-top: 3rem;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            animation: slideUp 0.8s ease-out 0.6s both;
-        }
-
-        footer p {
-            margin-bottom: 1rem;
-            font-size: 1rem;
-        }
-
-        footer a {
-            color: var(--quantum-blue);
-            text-decoration: none;
-            font-weight: 500;
-            transition: all 0.3s ease;
-            position: relative;
-        }
-
-        footer a:hover {
-            color: var(--quantum-purple);
-            transform: translateY(-1px);
-        }
-
-        footer a::after {
-            content: '';
-            position: absolute;
-            bottom: -2px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: var(--secondary-gradient);
-            transition: width 0.3s ease;
-        }
-
-        footer a:hover::after {
-            width: 100%;
-        }
-
-        .social-links {
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            margin-top: 1rem;
-        }
-
-        .social-links a {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            padding: 0.5rem 1rem;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 25px;
-            transition: all 0.3s ease;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .social-links a:hover {
-            background: var(--primary-gradient);
-            color: white;
-            transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(102, 126, 234, 0.4);
-        }
-
-        @media (max-width: 768px) {
-            .container {
-                padding: 1rem;
-            }
-            
-            h1 {
-                font-size: 2.5rem;
-            }
-            
-            header, main, footer {
-                padding: 1.5rem;
-            }
-            
-            .nav {
-                flex-direction: column;
-                gap: 0.5rem;
-            }
-            
-            .social-links {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .organizers-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .committee-list {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        ::-webkit-scrollbar {
-            width: 8px;
-        }
-
-        ::-webkit-scrollbar-track {
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 4px;
-        }
-
-        ::-webkit-scrollbar-thumb {
-            background: var(--primary-gradient);
-            border-radius: 4px;
-        }
-
-        ::-webkit-scrollbar-thumb:hover {
-            background: var(--secondary-gradient);
-        }
-    </style>
-</head>
-<body>
-    <div class="particle-bg"></div>
-    <div class="container py-5">
-        <header class="text-center mb-4">
-            <div class="logo-container">
-                <div class="electron-orbit"></div>
-                <div class="electron-orbit-2"></div>
-                <div class="logo-placeholder">
-                    CQST
-                </div>
+<div class="organizers-grid">
+    <div class="organizer-card">
+        <div class="organizer-photo">
+            <img src="images/P_K_Panigrahi.jpg" alt="Prof. P K Panigrahi">
+        </div>
+        <div class="organizer-name">Prof. Prasanta Kumar Panigrahi</div>
+        <div class="organizer-role">Chief Coordinator</div>
+        <div class="organizer-affiliation">Director, Centre for Quantum Science and Technology</div>
+        <div class="organizer-contact">
+            <i class="fas fa-envelope me-1"></i>
+        </div>
+    </div>
+
+    <div class="organizer-card">
+        <div class="organizer-photo">
+            <img src="images/Sudheesh_Chethil.jpg" alt="Dr. Raj Kumar">
+        </div>
+        <div class="organizer-name">Dr. Raj Kumar</div>
+        <div class="organizer-role">Program Committee Chair</div>
+        <div class="organizer-affiliation">Associate Professor, CQST</div>
+        <div class="organizer-contact">
+            <i class="fas fa-envelope me-1"></i>
+            <a href="mailto:raj.kumar@cqst.edu">raj.kumar@cqst.edu</a>
+        </div>
+        <div class="organizer-bio">Expert in quantum algorithms and complexity theory. Responsible for curating the technical program and ensuring the highest quality of scientific content for the symposium.</div>
+    </div>
+
+    <div class="organizer-card">
+        <div class="organizer-photo">
+            <div style="background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%); color: #2d3748;">
+                SD
             </div>
-            <h1>QSQT 2025</h1>
-            <p class="lead">Centre for Quantum Science and Technology (CQST)</p>
-            <nav class="nav justify-content-center">
-                <a class="nav-link" href="index.html"><i class="fas fa-home me-2"></i>Home</a>
-                <a class="nav-link" href="QSQT 2025.pdf"><i class="fas fa-calendar me-2"></i>Schedule</a>
-                <a class="nav-link" href="speakers.html"><i class="fas fa-users me-2"></i>Speakers</a>
-                <a class="nav-link" href="https://docs.google.com/forms/d/e/1FAIpQLSeVFa3bcAZjwA16zPXXQqK9UymgOCAYJtGqN_NDIdit2v5xCA/viewform?usp=header"><i class="fas fa-user-plus me-2"></i>Register</a>
-                <a class="nav-link" href="organizers.html"><i class="fas fa-cogs me-2"></i>Organizers</a>
-            </nav>
-        </header>
+        </div>
+        <div class="organizer-name">Shreetam Das</div>
+        <div class="organizer-role">Coordinator</div>
+        <div class="organizer-affiliation">CQST</div>
+        <div class="organizer-contact">
+            <i class="fas fa-envelope me-1"></i>
+        </div>
+    </div>
 
-        <main>
-            <h3>Our Organizing Team</h3>
-            <p>Meet the dedicated team behind QSQT 2025, bringing together the quantum science community for research and collaboration.</p>
-            
-            <div class="organizers-grid">
-                <div class="organizer-card">
-                    <div class="organizer-photo">
-                        <img src="images/P_K_Panigrahi.jpg" alt="Dipanakr Home">
-                        <div style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); color: white;">
-                            PD
-                        </div>
-                    </div>
-                    <div class="organizer-name">Prof. Prasanta Kumar Panigrahi</div>
-                    <div class="organizer-role">Chief Coordinator</div>
-                    <div class="organizer-affiliation">Director, Centre for Quantum Science and Technology</div>
-                    <div class="organizer-contact">
-                        <i class="fas fa-envelope me-1"></i>
-                    </div>
-                    <div class="organizer-bio"></div>
-                </div>
+    <div class="organizer-card">
+        <div class="organizer-photo">
+            <div style="background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%); color: #2d3748;">
+                AQ
+            </div>
+        </div>
+        <div class="organizer-name">Abdul Q. Batin</div>
+        <div class="organizer-role">Coordinator</div>
+        <div class="organizer-affiliation">CQST</div>
+        <div class="organizer-contact">
+            <i class="fas fa-envelope me-1"></i>
+        </div>
+    </div>
 
-                <div class="organizer-card">
-                    <div class="organizer-photo">
-                        <img src="images/Sudheesh_Chethil.jpg" alt="Dipanakr Home">
-                        <div style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); color: white;">
-                            DR
-                        </div>
-                    </div>
-                    <div class="organizer-name">Dr. Raj Kumar</div>
-                    <div class="organizer-role">Program Committee Chair</div>
-                    <div class="organizer-affiliation">Associate Professor, CQST</div>
-                    <div class="organizer-contact">
-                        <i class="fas fa-envelope me-1"></i>
-                        <a href="mailto:raj.kumar@cqst.edu">raj.kumar@cqst.edu</a>
-                    </div>
-                    <div class="organizer-bio">Expert in quantum algorithms and complexity theory. Responsible for curating the technical program and ensuring the highest quality of scientific content for the symposium.</div>
-                </div>
+    <div class="organizer-card">
+        <div class="organizer-photo">
+            <div style="background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%); color: #2d3748;">
+                JN
+            </div>
+        </div>
+        <div class="organizer-name">Jyotiraj Nath</div>
+        <div class="organizer-role">Coordinator</div>
+        <div class="organizer-affiliation">NIT Surat</div>
+        <div class="organizer-contact">
+            <i class="fas fa-envelope me-1"></i>
+        </div>
+    </div>
 
-                <div class="organizer-card">
-                    <div class="organizer-photo">
-                        <div style="background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%); color: #2d3748;">
-                            DR
-                        </div>
-                    </div>
-                    <div class="organizer-name">Shreetam Das</div>
-                    <div class="organizer-role">Coordinator</div>
-                    <div class="organizer-affiliation">CQST</div>
-                    <div class="organizer-contact">
-                        <i class="fas fa-envelope me-1"></i>
-                </div>    
-                <div class="organizer-card">
-                    <div class="organizer-photo">
-                        <div style="background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%); color: #2d3748;">
-                            DR
-                        </div>
-                    </div>
-                    <div class="organizer-name">Abdul Q. Batin</div>
-                    <div class="organizer-role">Coordinator</div>
-                    <div class="organizer-affiliation">CQST</div>
-                    <div class="organizer-contact">
-                        <i class="fas fa-envelope me-1"></i>
-                        
-                    
-                    
-                </div>
-                <div class="organizer-card">
-                    <div class="organizer-photo">
-                        <div style="background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%); color: #2d3748;">
-                            DR
-                        </div>
-                    </div>
-                    <div class="organizer-name">Jyotiraj Nath</div>
-                    <div class="organizer-role">Coordinator</div>
-                    <div class="organizer-affiliation">NIT Surat</div>
-                    <div class="organizer-contact">
-                        <i class="fas fa-envelope me-1"></i>
-                        
-                </div>
-                <div class="organizer-card">
-                    <div class="organizer-photo">
-                        <div style="background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%); color: #2d3748;">
-                            DR
-                        </div>
-                    </div>
-                    <div class="organizer-name">Mrinal Dev</div>
-                    <div class="organizer-role">Coordinator</div>
-                    <div class="organizer-affiliation">NIT Rourkela</div>
-                    <div class="organizer-contact">
-                        <i class="fas fa-envelope me-1"></i>
-                        
-                </div>  
-               
-                <div class="organizer-card">
-                    <div class="organizer-photo">
-                        <div style="background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%); color: #2d3748;">
-                            DR
-                        </div>
-                    </div>
-                    <div class="organizer-name">Leena Barshila</div>
-                    <div class="organizer-role">Coordinator</div>
-                    <div class="organizer-affiliation">CQST</div>
-                    <div class="organizer-contact">
-                        <i class="fas fa-envelope me-1"></i>
-                        
-                    
-                </div>
-            
-        </main>
+    <div class="organizer-card">
+        <div class="organizer-photo">
+            <div style="background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%); color: #2d3748;">
+                MD
+            </div>
+        </div>
+        <div class="organizer-name">Mrinal Dev</div>
+        <div class="organizer-role">Coordinator</div>
+        <div class="organizer-affiliation">NIT Rourkela</div>
+        <div class="organizer-contact">
+            <i class="fas fa-envelope me-1"></i>
+        </div>
+    </div>
 
-        <footer class="text-center mt-5">
-            <p><i class="fas fa-envelope me-2"></i>Contact
+    <div class="organizer-card">
+        <div class="organizer-photo">
+            <div style="background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%); color: #2d3748;">
+                LB
+            </div>
+        </div>
+        <div class="organizer-name">Leena Barshila</div>
+        <div class="organizer-role">Coordinator</div>
+        <div class="organizer-affiliation">CQST</div>
+        <div class="organizer-contact">
+            <i class="fas fa-envelope me-1"></i>
+        </div>
+    </div>
+
+    <!-- Prateek -->
+    <div class="organizer-card">
+        <div class="organizer-photo">
+            <div style="background: linear-gradient(135deg, #fad0c4 0%, #ffd1ff 100%); color: #2d3748;">
+                PR
+            </div>
+        </div>
+        <div class="organizer-name">Prateek Raj</div>
+        <div class="organizer-role">Coordinator</div>
+        <div class="organizer-affiliation">CQST</div>
+        <div class="organizer-contact">
+            <i class="fas fa-envelope me-1"></i>
+            <a href="mailto:prateek.raj@cqst.edu">prateek.raj@cqst.edu</a>
+        </div>
+    </div>
+
+    <!-- Mandar -->
+    <div class="organizer-card">
+        <div class="organizer-photo">
+            <div style="background: linear-gradient(135deg, #d4fc79 0%, #96e6a1 100%); color: #2d3748;">
+                MS
+            </div>
+        </div>
+        <div class="organizer-name">Mandar Sane</div>
+        <div class="organizer-role">Coordinator</div>
+        <div class="organizer-affiliation">CQST</div>
+        <div class="organizer-contact">
+            <i class="fas fa-envelope me-1"></i>
+            <a href="mailto:mandar.sane@cqst.edu">mandar.sane@cqst.edu</a>
+        </div>
+    </div>
+</div>
